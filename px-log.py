@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # - Log parser for portworx.service logfiles
 
-import argparse
-import re
+import os
 import sys
+import re
+import argparse
 from collections import defaultdict
 from datetime import timezone as tz
 from dateutil import parser as dupa
@@ -11,8 +12,9 @@ from dateutil import parser as dupa
 
 # GLOBALS
 #
-version = '1.0.0'
-lineFormat = '%(time)19s %(lcode)s %(msg)-100s %(misc)s'
+version = '1.0.1'
+lineFormat = os.getenv(
+    'PX_LOG_FORMAT', default='%(time)19s %(lcode)s %(msg)-100s %(misc)s')
 tm0 = 0
 utf8stdout = open(1, 'w', encoding='utf-8', closefd=False)  # fd 1 is stdout
 
