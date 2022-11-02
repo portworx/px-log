@@ -28,6 +28,23 @@ examples:
     px-log --fmt "%(reltime)11s %(file)19s] %(level)8.8s: %(msg)s" px4.log
 ```
 
+### More tips
+
+Set the `PX_LOG_FORMAT` environment variable to change the default output format:
+
+```bash
+export PX_LOG_FORMAT='%(time)19s %(lcode)s %(msg)s'
+px-log /tmp/px5.log
+```
+
+Configure `less` pager to automatically use `px-log`:
+
+```bash
+export LESSOPEN="|/usr/local/bin/px-log %s"
+export LESS='-RS'
+less /tmp/px6.log
+```
+
 ## Building
 
 The script can be used "as is", provided you have `python3` installed on your system.
