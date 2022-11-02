@@ -1,0 +1,5 @@
+altgraph==0.17.3
+pkg-resources==0.0.0
+PyInstaller==3.6
+python-dateutil==2.8.2
+six==1.16.0
